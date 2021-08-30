@@ -100,7 +100,7 @@ a:hover {
 }
 
 .d-bloc {
-    color: rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .d-bloc button:hover {
@@ -123,7 +123,6 @@ a:hover {
 .d-bloc .navbar a,
 .d-bloc .navbar-brand,
 .d-bloc a .icon-sm,
-.d-bloc a .icon-md,
 .d-bloc a .icon-lg,
 .d-bloc a .icon-xl,
 .d-bloc h1 a,
@@ -362,6 +361,21 @@ a:hover {
     z-index: 2;
 }
 
+/*Audit SEO/Accessibilité : remplacement du texte intégré dans une image par un texte réel sous forme de citation. */
+blockquote p:nth-child(1) {
+    font-size: 1.2em;
+    font-style: italic;
+    width: 90%;
+    line-height: 25px;
+    margin-left: 20px;
+}
+
+blockquote p:nth-child(2) {
+    font-size: 0.9em;
+    margin-top: -10px;
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     .site-navigation {
         position: absolute;
@@ -476,7 +490,8 @@ button {
 }
 
 .icon-md {
-    font-size: 30px!important;
+    font-size: 40px!important;
+    color: #575757;
 }
 
 .icon-lg {
@@ -709,6 +724,37 @@ h2 {
     line-height: 1.4em;
 }
 
+/*Audit SEO/Accessibilité : remplacement du texte intégré dans une image par un véritable bloc de texte */
+#bloc-2-services h2 {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#bloc-4-portfolio h2 {
+    width: 45%;
+    margin: auto;
+    text-align: center;
+}
+
+#bloc-5-cta {
+    position: relative;
+    height: 350px;
+}
+
+#bloc-5-cta h2 {
+    display: block;
+    position: absolute;
+    width: 40%;
+    top: 30%;
+    left: 30%;
+}
+
+#bloc-5-cta .btn {
+    margin-top: 150px;
+}
+
+
 h3 {
     font-size: 15px;
     text-transform: uppercase;
@@ -753,8 +799,12 @@ h4 {
 }
 
 .black-background {
-    background-color: rgba(165, 147, 99, 0.7);
+    background-color: rgba(82, 73, 47, 0.7);
     padding: 40px 40px 40px 40px;
+}
+
+.black-background h2 {/* Audit SEO/Accessibilité : changement de la couleur du background pour augmenter le contraste jusqu'au niveau valide */
+    color: #fcb08c;
 }
 
 .bold-link {
@@ -774,17 +824,17 @@ h4 {
     background-color: #F3976C;
 }
 
-.tc-white {
-    color: #F3976C!important;
+.tc-white {/* Audit SEO/Accessibilité : changement de la couleur du texte pour augmenter le contraste  jusqu'au niveau valide */
+    color: #fcb08c!important;
 }
 
 .btn-atomic-tangerine {
     background: #F3976C;
-    color: #FFFFFF!important;
+    color: #000!important;/*Audit SEO/Accessibilité : modification de la couleur du texte pour arriver à un contraste acceptable de niveau AA */
 }
 
-.btn-atomic-tangerine:hover {
-    background: #c27956!important;
+.btn-atomic-tangerine:hover {/*Audit SEO/Accessibilité : modification de la couleur du bkg pour arriver à un contraste acceptable de niveau AA */
+    background: #915A40!important;
     color: #FFFFFF!important;
 }
 
@@ -822,7 +872,7 @@ h4 {
 }
 
 .bg-presentation {
-    background-image: url("img/image-de-presentation.bmp");
+    background-image: url("img/image-de-presentation.jpg");
 }
 
 @media (max-width: 1024px) {
@@ -848,13 +898,13 @@ h4 {
     }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .b-parallax {
         background-attachment: scroll;
     }
 }
 
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
     .b-parallax {
         background-attachment: scroll;
     }
@@ -872,9 +922,9 @@ h4 {
         overflow-x: hidden;
         position: relative;
     }
-    .bloc {
+    /*.bloc {
         padding-left: constant(safe-area-inset-left);
-        padding-right: constant(safe-area-inset-right);
+        padding-right: constant(safe-area-inset-right); Vérification W3C : n'existe pas*/
     }
     .bloc-group,
     .bloc-group .bloc {
@@ -884,10 +934,9 @@ h4 {
     .bloc-fill-screen .fill-bloc-top-edge,
     .bloc-fill-screen .fill-bloc-bottom-edge {
         padding: 0 20px;
-        padding-left: constant(safe-area-inset-left);
-        padding-right: constant(safe-area-inset-right);
+        /*padding-left: constant(safe-area-inset-left);
+        padding-right: constant(safe-area-inset-right); Vérification W3C : n'existe pas*/
     }
-}
 
 @media (max-width: 767px) {
     .page-container {
@@ -1038,5 +1087,183 @@ h4 {
 @media (max-width: 767px) {
     .bloc-mob-center-text {
         text-align: center;
+    }
+}
+
+/* Audit SEO/Accessibilité : mise en page du footer et renforcement du contraste pour atteindre un niveau acceptable */
+#bloc-8 p {
+    color: #000!important;
+    margin-bottom: 20px;
+}
+
+.liens {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+.listeliens h3 {
+    color: #000!important;
+    font-size: 0.9em;
+    width: 60%;
+    text-align: center;
+}
+
+.listeliens h3::after { /* Ligne en-dessous des titres */
+    content: "";
+    display: block;
+    width: 60%;
+    margin: auto;
+    border-bottom: 6px solid #FAD5C4;
+    padding-top: 6px;
+}
+
+.listeliens {
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 0;
+}
+
+.listeliens ul {
+    margin: 0;
+    padding: 0;
+}
+
+.listeliens ul li, .listeliens ul li a {
+    color: #000!important;
+    font-size: 0.9em;
+}
+
+.listeliens ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Audit SEO/Accessibilité Page 2 : mise en visibilité du texte derrière le background, et renforcement du contraste pour atteindre un niveau acceptable */
+
+#bloc-6 {
+    height: 350px;
+    z-index: 1;
+    padding-left: 0;
+}
+
+#bloc-6 h1 {
+    color: #000!important;
+    display: block;
+    z-index: 3;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#bloc-6 h2 {
+    color: #FFF!important;
+    display: block;
+    z-index: 3;
+    width: 70%;
+    font-size: 1.8em;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+#form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.container.bloc-lg {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Media queries ajoutées après modifications SEO pour optimiser le responsive */
+
+@media (min-width: 320px) and (max-width: 1204px) {
+    .liens {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .liste-reseaux {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    #bloc-2-services h2 {
+        margin-bottom: 0!important;
+        width: 90%;
+    }
+    #bloc-4-portfolio h2 {
+        width: 90%;
+        margin-left: 20px!important;
+        margin-bottom: 40px!important;
+    }
+    #bloc-3-what-i-do h2 {
+        width: 100%;
+        margin-left: 0!important;
+        margin-right: -60px!important;
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+    #bloc-3-what-i-do p {
+        font-size: 1em;
+    }
+    #bloc-4-portfolio img {
+        margin: auto;
+    }
+    main, #bloc-2-services {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    blockquote p:nth-child(1) {
+    font-size: 1.2em;
+    }
+    #bloc-4-portfolio h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px!important;
+    }
+    #bloc-4-portfolio p {
+        margin-bottom: 20px!important;
+    }
+    .portfolio-row {
+        margin-bottom: 0!important;
+        margin-top: 0!important;
+    }
+    #bloc-5-cta h2 {
+        width: 80%;
+        top: 30%;
+        left: 10%;
+    }
+    #bloc-5-cta .btn {
+        margin-top: 200px;
+    }
+    /*Page 2*/
+    #bloc-6 h1 {
+        font-size: 1.9em;
+    }
+    #bloc-6 h2 {
+        font-size: 1.4em!important;
+    }
+    form {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    .liens {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: nowrap;
     }
 }
