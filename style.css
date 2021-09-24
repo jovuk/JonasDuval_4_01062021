@@ -730,7 +730,9 @@ h2 {
     margin: auto;
     margin-bottom: 20px;
 }
-
+#bloc-3-what-i-do p {
+    font-size: 12px;
+}
 #bloc-4-portfolio h2 {
     width: 45%;
     margin: auto;
